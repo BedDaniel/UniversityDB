@@ -21,7 +21,7 @@ public:
     std::string getCountry() const;
 
     std::string getAddress() const;
-    std::toString();
+    std::string toString();
 
     bool isPostCodeCorrect(const std::string & postCode);
     void initializeDataFromUser();

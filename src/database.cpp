@@ -93,7 +93,7 @@ void Database::displayDb(){
 }
 void Database::addNewStudent(){
     auto newStudent = Student();
-    newStudent.ini
+    newStudent.ini;
 }
 
 

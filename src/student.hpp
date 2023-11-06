@@ -33,7 +33,7 @@ public:
     void setFirstName(const std::string & firstName);
     void setLastName(const std::string & lastName);
     void setAddress(const Address & address);
-    void setIndexNumber(const std::strind indexNumber);
+    void setIndexNumber(const std::string indexNumber);
     void setPesel(const std::string & pesel);
     void setGender(Gender & gender);
 
