@@ -20,3 +20,4 @@ std::string Student::show() const {
 std::string Student::getLastName() const { return lastName_; }
 
 std::string Student::getPesel() const { return pesel_; }
+

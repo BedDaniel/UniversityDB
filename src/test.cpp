@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "student.hpp"
 #include "database.hpp"
+#include "addresses.hpp"
 
 struct DatabaseTest : ::testing::Test{
     Database db;

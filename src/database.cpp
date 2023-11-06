@@ -1,5 +1,6 @@
 #include "database.hpp"
-#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include <algorithm>
 
@@ -58,3 +59,42 @@ void Database::sortByPesel(){
                 return std::stoll(a.getPesel()) < std::stoll(b.getPesel());});
     display();
 }
+
+Database::Database(std::string DbFile){
+    initializeDatabase(DbFile);
+}
+Database::~Database(){}
+
+void Database::initializeDatabase(std::string DbFile){
+    std::ifstream DatabaseFile(DbFile);
+    if(!DatabaseFile.is_open())
+    {
+        std::cerr << "Error! Could not open the file: " << DbFile << '\n';
+        return;
+    }
+    std::string line;
+    while(std::getline(DatabaseFile, line))
+    {
+        this->students_.push_back(addNewStudent(line));
+    }
+    DatabaseFile.close();
+}
+
+void Database::displayDb(){
+    if(this->students_.empty())
+    {
+        std::cout << "\n Database is empty.\n";
+    }
+    else
+    {
+        std::for_each(this->students_.begin(), students_.end(), 
+                            [] (Student & student) { std::cout << student.getDescripionOfStudent();});
+    }
+}
+void Database::addNewStudent(){
+    auto newStudent = Student();
+    newStudent.ini
+}
+
+
+
