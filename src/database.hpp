@@ -12,20 +12,23 @@ public:
 
     void showMenu();
     void initializeDatabase(std::string DbFile);
-
-    
-    void add(const Student & s);
+    void updateDatabase(std::string DbFile);
+    void addStudent();
+    void addStudent(const Student & s);
+    std::vector<Student> getStudents();
     void display() const;
-    int getAmountOfStudents();
-    std::string show() const;
-    void displayDb();
-    Student addNewStudent();
-    std::string searchByLastName(std::string lastName);
-    std::string searchByPesel(std::string pesel);
+    Student CreateNewStudent(std::string student);
+    
+    // std::string show() const;
+    // void displayDb();
+    void searchByLastName();
+    int searchByLastName(std::string lastName);
+    void searchByPesel();
+    int searchByPesel(std::string pesel);
     void sortByPesel();
     void sortByLastName();
     void deleteByIndex(int index);
-
+    int getAmountOfStudents();
 private:
     std::vector<Student> students_;
 };
