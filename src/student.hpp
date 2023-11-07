@@ -28,7 +28,7 @@ public:
     Gender getGender() const;
 
     std::string getGenderString() const;
-    bool isPeselCorrect(const std::string & pesel);
+    bool isPeselCorrect(const std::string pesel);
     bool isGenderCorrect(const std::string & gender);
 
     void setFirstName(const std::string & firstName);
@@ -54,6 +54,7 @@ private:
     std::string getLastNameFromUser();
     std::string getIdFromUser();
     std::string getPeselFromUser();
+    std::string getIndexNumberFromUser();
     Gender getGenderFromUser();
 };
 

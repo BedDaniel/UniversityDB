@@ -94,17 +94,43 @@ std::string Student::getIdFromUser(){
     std::cout << "Enter student's index number: "; std::cin >> indexNumber;
     return indexNumber;
 }
+
+
+bool Student::isPeselCorrect(std::string pesel){
+    if(pesel.length() != 11) { return false; }
+
+    int weights[] = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1};
+    int checksum = 0;
+
+    for(int i = 0; i < sizeof(weights); ++i)
+    {
+        if(!isdigit(pesel[i])) {return false; }
+
+        int digit = pesel[i] -'0';
+        checksum += digit * weights[i];
+    }
+    return (checksum % 10 == 0);
+}
+
 std::string Student::getPeselFromUser(){
     std::string pesel;
     std::cout << "Enter student's PESEL: "; std::cin >> pesel;
+    bool isPeselEnterCorrect = isPeselCorrect(pesel);
+    while(!isPeselEnterCorrect)
+    {
+        std::cout << "PESEL is incorrect. \n";
+        std::cout << "Enter PESEL again: "; std::cin >> pesel;
+        isPeselEnterCorrect = isPeselCorrect(pesel);
+    }
     return pesel;
 }
+
 
 bool Student::isGenderCorrect(const std::string & gender){
     if(gender == "F" or gender == "M" or gender == "f" or gender == "m") { return true; }
     else { return false; }
-
 }
+
 Gender Student::getGenderFromUser(){
     std::string gender;
     std::cout << "Enter student's gender (F/M): "; std::cin >> gender;
@@ -112,9 +138,32 @@ Gender Student::getGenderFromUser(){
     
     while(!isGenderEnterCorrect)
     {
-
+        std::cout << "Incorrect gender. Enter F or M.\n";
+        std::cout << "Enter student's gender: "; std::cin >> gender;
+        isGenderCorrect(gender);
     }
-    
- //   bool isGenderC
+    if(gender == "F" or gender == "f")      { return Gender::Female; }
+    else if(gender == "M" or gender == "m") { return Gender::Male; }
+    else                                    { return Gender::Unknown; }
 }
+
+void Student::initializeDataFromUser(){
+    this->name_ = getFirstNameFromUser();
+    this->lastName_ = getLastNameFromUser();
+    this->address_.initDataFromUser();
+    this->indexNumber_ = getIndexNumberFromUser();
+    this->pesel_ = getPeselFromUser();
+    this->gender_ = getGenderFromUser();
+}
+
+std::string Student::toString(){
+    return this->name_ + ";" + 
+           this->lastName_ + ";" + 
+           this->indexNumber_ + ";" + 
+           this->pesel_ + ";" + 
+           getGenderString() + ";" + 
+           this->address_.toString();
+}
+
+
 
