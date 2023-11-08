@@ -87,7 +87,7 @@ std::string Address::getProvinceFromUser(){
 }
 std::string Address::getCountryFromUser(){
     std::string country;
-    std::cout << "Enter the country: "; std::cin >> country;
+    std::cout << "Enter the flat number: "; std::cin >> country;
     return country;
 }
 

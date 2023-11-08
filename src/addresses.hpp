@@ -7,8 +7,8 @@ public:
     Address();
     Address(const std::string street,
             const std::string houseNumber,
-            const std::string city,
             const std::string postCode,
+            const std::string city,
             const std::string country,
             const std::string flatNumber = "",
             const std::string province = "");
