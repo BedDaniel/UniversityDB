@@ -9,7 +9,6 @@ Database::Database(){
 }
 
 Database::Database(std::string DbFile){
-    std::cout << "Second c-tor\n";
     initializeDatabase(DbFile);
 }
 
@@ -19,7 +18,7 @@ void Database::initializeDatabase(std::string DbFile){
     std::ifstream DatabaseFile(DbFile);
     if(!DatabaseFile.is_open())
     {
-        std::cerr << "Error! Could not open the file: " << DbFile << "\n\n";
+  //      std::cerr << "Error! Could not open the file: " << DbFile << "\n\n";
         return;
     }
 
