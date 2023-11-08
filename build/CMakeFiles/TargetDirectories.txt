@@ -1,0 +1,3 @@
+/home/daniel/Desktop/project/UDB/build/CMakeFiles/UDB.dir
+/home/daniel/Desktop/project/UDB/build/CMakeFiles/edit_cache.dir
+/home/daniel/Desktop/project/UDB/build/CMakeFiles/rebuild_cache.dir
