@@ -1,6 +1,7 @@
 #pragma once
+#include <iostream>
 #include <string>
-#include "address.hpp"
+#include "addresses.hpp"
 
 enum class Gender{
     Male,
@@ -13,11 +14,11 @@ public:
     Student();
     Student(std::string student);
 
-    Student(std::string name,
-            std::string lastName, 
-            Address address, 
+    Student(const std::string & name,
+            const std::string & lastName, 
+            const Address & address, 
             std::string indexNumber, 
-            std::string pesel, 
+            const std::string pesel, 
             Gender gender);
 
     std::string getFirstName() const;

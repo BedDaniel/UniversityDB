@@ -3,13 +3,13 @@
 
 Address::Address() {}
 
-Address::Address(const std::string & street,
-                 const std::string & houseNumber,
-                 const std::string & flatNumber,
-                 const std::string & city,
-                 const std::string & postCode,
-                 const std::string & province,
-                 const std::string & country) 
+Address::Address(const std::string street,
+                 const std::string houseNumber,
+                 const std::string flatNumber,
+                 const std::string city,
+                 const std::string postCode,
+                 const std::string province,
+                 const std::string country) 
         :   street_(street), houseNumber_(houseNumber), flatNumber_(flatNumber), city_(city),
             postCode_(postCode), province_(province), country_(country) 
         {}
@@ -87,7 +87,7 @@ std::string Address::getProvinceFromUser(){
 }
 std::string Address::getCountryFromUser(){
     std::string country;
-    std::cout << "Enter the flat number: "; std::cin >> country;
+    std::cout << "Enter the country: "; std::cin >> country;
     return country;
 }
 

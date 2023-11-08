@@ -16,18 +16,21 @@ public:
     void addStudent();
     void addStudent(const Student & s);
     std::vector<Student> getStudents();
-    void display() const;
-    Student CreateNewStudent(std::string student);
-    
-    // std::string show() const;
-    // void displayDb();
+    void display();
+    Student createNewStudent(std::string student);
+
     void searchByLastName();
     int searchByLastName(std::string lastName);
+
     void searchByPesel();
     int searchByPesel(std::string pesel);
+
     void sortByPesel();
     void sortByLastName();
-    void deleteByIndex(int index);
+
+    void deleteByIndex();
+    void deleteByIndex(std::string index);
+    
     int getAmountOfStudents();
 private:
     std::vector<Student> students_;

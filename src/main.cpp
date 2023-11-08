@@ -1,10 +1,8 @@
-#include <iostream>
-#include "student.hpp"
 #include "database.hpp"
-
 
 int main(){
     Database db;
-
+    db.showMenu();
+    
     return 0;
 }

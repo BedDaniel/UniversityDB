@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 
+
 Student::Student(){}
 
 Student::Student(std::string student) {
@@ -34,16 +35,16 @@ Student::Student(std::string student) {
                     properties[11]);
     this->name_ = properties[0];
     this->lastName_ = properties[1];
+    this->address_ = address;
     this->indexNumber_ = properties[2];
     this->pesel_ = properties[3];
-    this->address_ = address;
     this->gender_ = gender; }
 
 Student::Student(const std::string & name,
                  const std::string & lastName, 
                  const Address & address, 
-                 int indexNumber, 
-                 std::string pesel, 
+                 std::string indexNumber, 
+                 const std::string pesel, 
                  Gender gender) 
         : name_(name), lastName_(lastName), address_(address), indexNumber_(indexNumber), pesel_(pesel), gender_(gender) {}
   
@@ -69,19 +70,19 @@ std::string Student::getGenderString() const {
 
 std::string Student::getDescripionOfStudent() const {
     std::stringstream ss;
-    ss << "==================================================\n";
+    ss << "\n==================================================\n";
     ss << "Name: " << name_ << " " << "Surname: " << lastName_ << '\n';
     ss << "Address: " << address_.getAddress() << '\n';
     ss << "Index number: " << indexNumber_ << '\n';
     ss << "PESEL: " << pesel_ << '\n';
     ss << "Gender: " << getGenderString() << '\n';
-    ss << "==================================================\n";
+    //ss << "==================================================\n";
     return ss.str();
 }
 
 std::string Student::getFirstNameFromUser(){
     std::string name;
-    std::cout << "Enter student's name: "; std::cin >> name;
+    std::cout << "\nEnter student's name: "; std::cin >> name;
     return name;
 }
 std::string Student::getLastNameFromUser(){
@@ -89,7 +90,7 @@ std::string Student::getLastNameFromUser(){
     std::cout << "Enter student's surname: "; std::cin >> lastName;
     return lastName;
 }
-std::string Student::getIdFromUser(){
+std::string Student::getIndexNumberFromUser(){
     std::string indexNumber;
     std::cout << "Enter student's index number: "; std::cin >> indexNumber;
     return indexNumber;
@@ -102,7 +103,7 @@ bool Student::isPeselCorrect(std::string pesel){
     int weights[] = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1};
     int checksum = 0;
 
-    for(int i = 0; i < sizeof(weights); ++i)
+    for(int i = 0; i < 11; ++i)
     {
         if(!isdigit(pesel[i])) {return false; }
 
@@ -150,10 +151,10 @@ Gender Student::getGenderFromUser(){
 void Student::initializeDataFromUser(){
     this->name_ = getFirstNameFromUser();
     this->lastName_ = getLastNameFromUser();
-    this->address_.initDataFromUser();
     this->indexNumber_ = getIndexNumberFromUser();
     this->pesel_ = getPeselFromUser();
     this->gender_ = getGenderFromUser();
+    this->address_.initializeDataFromUser();
 }
 
 std::string Student::toString(){

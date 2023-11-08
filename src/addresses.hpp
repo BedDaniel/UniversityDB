@@ -1,16 +1,17 @@
+#pragma once
 #include <iostream>
 #include <string>
 
-class Address{
+class Address {
 public:
     Address();
-    Address(const std::string& street,
-            const std::string& houseNumber,
-            const std::string& flatNumber = "",
-            const std::string& city,
-            const std::string& postCode,
-            const std::string& province = "",
-            const std::string& country = "");
+    Address(const std::string street,
+            const std::string houseNumber,
+            const std::string city,
+            const std::string postCode,
+            const std::string country,
+            const std::string flatNumber = "",
+            const std::string province = "");
 
     std::string getStreet() const;
     std::string getHouseNumber() const;
